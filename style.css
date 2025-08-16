@@ -1,0 +1,172 @@
+body {
+  background: linear-gradient(145deg, rgb(203, 85, 85), rgb(106, 92, 196));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 100vh;
+  transition: background 1.5s ease-in-out; /* smooth bg change */
+  position: relative;
+}
+
+.content {
+  height: auto;
+  width: 95%;
+  max-width: 450px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  position: relative;
+}
+
+/* Title styling */
+h2 {
+  color: white;
+  margin-top: 20px;
+  font-size: 1.8rem;
+  text-shadow: 0 0 10px #ff80ab, 0 0 20px #ff4081;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 5px #fff, 0 0 10px #ff80ab; }
+  to { text-shadow: 0 0 20px #fff, 0 0 30px #ff4081; }
+}
+
+/* Images */
+.card img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out; /* smooth fade */
+}
+
+.card img.active {
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons */
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, .5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+button.prev:hover,
+button.next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+/* 🌸 Flower animation */
+.flower {
+  position: absolute;
+  top: -50px;
+  width: 40px;
+  animation: fall linear forwards;
+  opacity: 0.8;
+}
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.7;
+  }
+}
+
+/* 🎈 Balloon animation */
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 50px;
+  height: 70px;
+  background: radial-gradient(circle at 30% 30%, #ff4081, #d81b60);
+  border-radius: 50%;
+  animation: floatUp 8s linear forwards;
+}
+@keyframes floatUp {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+}
+
+/* 🎊 Confetti */
+.confetti {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 15px;
+  background: gold;
+  opacity: 0.9;
+  animation: confFall linear forwards;
+}
+@keyframes confFall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.7;
+  }
+}
+
+/* ✨ Sparkles */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px white, 0 0 20px pink;
+  animation: twinkle 2s infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .content {
+    width: 100%;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  button.prev, button.next {
+    font-size: 18px;
+    padding: 6px;
+  }
+
+  .card img {
+    max-height: 100%;
+  }
+}
